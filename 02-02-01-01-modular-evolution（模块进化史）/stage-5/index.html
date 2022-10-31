@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Modular evolution stage 5</title>
+</head>
+<body>
+  <h1>模块化规范的出现</h1>
+  <h2>Require.js 提供了 AMD（Async Module Definition：异步模块定义） 模块化规范，以及一个自动化模块加载器</h2>
+  <script src="lib/require.js" data-main="main"></script>
+
+  <!-- 扩展：
+    data-main 是 seajs 的 use 的简化方式，事实上：
+    
+    <script type="text/javascript" src="js/libs/seajs1.2.0.js" data-main="/Office/js/common"></script>
+    
+    等同于：
+
+    <script type="text/javascript" src="js/libs/seajs1.2.0.js"></script>
+    <script>
+      seajs.use('/Office/js/common');
+    </script> -->
+
+
+    <!-- 扩展：
+    AMD 是 RequireJS 在推广过程中对模块定义的规范化产出。
+    CMD 是 SeaJS 在推广过程中对模块定义的规范化产出。 -->
+
+  
+</body>
+</html>

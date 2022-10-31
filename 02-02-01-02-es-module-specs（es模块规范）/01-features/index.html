@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>ES Module - 模块的特性</title>
+</head>
+<body>
+  <!-- 通过给 script 添加 type = module 的属性，就可以以 ES Module 的标准执行其中的 JS 代码了 -->
+  <script type="module">
+    console.log('this is es module')
+  </script>
+
+  <!-- 1. ESM（es模块化） 自动采用严格模式，忽略 'use strict' -->
+  <script type="module">
+    console.log(this)  // undefined
+  </script>
+
+  <!-- 2. 每个 ES Module 都是运行在单独的私有作用域中 -->
+  <script type="module">
+    var foo = 100
+    console.log(foo) // 100
+  </script>
+  <script type="module">
+    console.log(foo)  // foo is not defined
+  </script>
+
+  <!-- 3. ESM 是通过 CORS 的方式请求外部 JS 模块的 -->
+  <!-- 
+    https://developer.mozilla.org/zh-CN/docs/Web/HTTP/CORS
+    CORS（Cross-Origin Resource Sharing）（或通俗地译为跨域资源共享）是一种基于 HTTP 头的机制，该机制通过允许服务器标示除了它自己以外的其它 origin（域，协议和端口），使得浏览器允许这些 origin 访问加载自己的资源。
+    CORS （Cross-Origin Resource Sharing，跨域资源共享）是一个系统，它由一系列传输的HTTP 头组成，这些 HTTP 头决定浏览器是否阻止前端 JavaScript 代码获取跨域请求的响应。
+  -->
+  <!-- <script type="module" src="https://unpkg.com/jquery@3.4.1/dist/jquery.min.js"></script> -->
+
+  <!-- 4. ESM 的 script 标签会延迟执行脚本 -->
+  <!-- [浅谈script标签的defer和async](https://juejin.cn/post/6844903560879013896)  -->
+  <script defer src="demo.js"></script>
+  <p>需要显示的内容</p>
+</body>
+</html>
